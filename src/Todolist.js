@@ -22,6 +22,7 @@ class Todolist extends Component{
             list : [...list, value],
             value: ''
         })
+
     }
 
     _handleItemDelete(index, t){
