@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e337e19-9d28-4e21-b1a4-f30389a5f2f6" name="Default" comment="add demo todolist">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/todolist.iml" afterPath="" />
+    <list default="true" id="5e337e19-9d28-4e21-b1a4-f30389a5f2f6" name="Default" comment="">
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -333,7 +330,7 @@
       <option name="presentableId" value="Default" />
       <updated>1554646939329</updated>
       <workItem from="1554646941003" duration="80000" />
-      <workItem from="1554730188475" duration="8074000" />
+      <workItem from="1554730188475" duration="8095000" />
     </task>
     <task id="LOCAL-00001" summary="add demo todolist">
       <created>1554738135084</created>
@@ -342,11 +339,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554738135084</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add demo todolist">
+      <created>1554738302808</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1554738302808</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10597000" />
+    <option name="totallyTimeSpent" value="10618000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
