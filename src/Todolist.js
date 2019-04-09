@@ -1,4 +1,6 @@
 import React, {Component, Fragment} from 'react'
+import './style.css'
+import TodoItem from './TodoItem'
 
 class Todolist extends Component{
     constructor(props){
@@ -7,52 +9,68 @@ class Todolist extends Component{
             value : '',
             list : []
         }
+        this._handleInput = this._handleInput.bind(this);
+        this._handleClick = this._handleClick.bind(this);
+        this._handleItemDelete = this._handleItemDelete.bind(this);
     }
 
+    getTodoItem(){
+        return (
+            this.state.list.map((e, index)=>{
+                return (
+                    <TodoItem
+                        key={index}
+                        index={index}
+                        value={e}
+                        _handleItemDelete={this._handleItemDelete}
+                    />
+                )
+            })
+        )
+    }
 
     _handleInput(e){
         let value = e.target.value;
-        this.setState({
+        this.setState(() => ({
             value : value
-        });
+        }));
     }
 
     _handleClick(){
-        let {value, list} = this.state;
-        this.setState({
-            list : [...list, value],
+        this.setState((prevState) => ({
+            list : [...prevState.list, prevState.value],
             value: ''
-        })
+        }))
 
     }
 
-    _handleItemDelete(index, t){
-        let {list} = this.state;
-        this.setState({
-            list: [
+    _handleItemDelete(index){
+        this.setState((prevState) => {
+            let {list} = prevState;
+            list = [
                 ...list.slice(0,index),
                 ...list.slice(index + 1)
-            ]
+            ];
+            return {list}
         })
     }
 
     render(){
-        let {list} = this.state;
         return(
             <Fragment>
+                {/*下面是一个组件*/}
                 <h2>Todolist</h2>
-                <input type="text"
-                       onInput={this._handleInput.bind(this)}
-                       value={this.state.value}/>
-                <button onClick={this._handleClick.bind(this)}>click</button>
+                <label htmlFor="input">输入内容:</label>
+                <input
+                    id="input"
+                    className="input"
+                    type="text"
+                    onInput={this._handleInput}
+                    value={this.state.value}/>
+                <button onClick={this._handleClick}>click</button>
                 <ul>
                     {
-                        list.map((e, index)=>{
-                            return (
-                                <li key={index}
-                                onClick={this._handleItemDelete.bind(this,index)}>{e}
-                                </li>)
-                        })
+                        this.getTodoItem()
                     }
                 </ul>
             </Fragment>
