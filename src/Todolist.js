@@ -15,6 +15,7 @@ class Todolist extends Component{
     }
 
     getTodoItem(){
+        console.log('father')
         return (
             this.state.list.map((e, index)=>{
                 return (
