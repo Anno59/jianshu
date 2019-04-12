@@ -16,21 +16,30 @@ class TodoItem extends Component{
         _handleItemDelete(index)
     }
 
+    componentWillReceiveProps(){
+        console.log('componentWillReceiveProps')
+    }
+
+    componentWillUnmount(){
+        console.log('child,unmount')
+    }
+
     render(){
-        console.log('son')
+        // console.log('son')
         const {index, value, a} = this.props;
+        // return React.createElement('li', {}, React.createElement('li', {}, 'h=oh'));
         return(
             <li
                 onClick={this._handleClick}
-                dangerouslySetInnerHTML={{__html: value}}>
-            </li>
-        )
+                 dangerouslySetInnerHTML={{__html: value}}>
+             </li>
+         )
     }
 }
 
 TodoItem.propTypes = {
     a : PropTypes.string.isRequired,
-    value : PropTypes.oneOfType(PropTypes.string,PropTypes.number),
+    value : PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
     _handleItemDelete : PropTypes.func,
     index : PropTypes.number
 };
