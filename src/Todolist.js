@@ -20,10 +20,10 @@ class Todolist extends Component{
             this.state.list.map((e, index)=>{
                 return (
                     <TodoItem
-                        key={index}
-                        index={index}
-                        value={e}
-                        _handleItemDelete={this._handleItemDelete}
+                         key={index}
+                         index={index}
+                         value={e}
+                         _handleItemDelete={this._handleItemDelete}
                     />
                 )
             })
@@ -66,7 +66,7 @@ class Todolist extends Component{
                     id="input"
                     className="input"
                     // ref={(input)=>{this.input = input}}
-                    onInput={this._handleInput}
+                    onChange={this._handleInput}
                     value={this.state.value}/>
                 <button onClick={this._handleClick}>click</button>
                 <ul>
@@ -79,8 +79,14 @@ class Todolist extends Component{
     }
 
     componentDidMount(){
-        axios.get('/api/TodoItem')
-            .then(()=>{console.log('success')})
+        axios.get('/api/todolist')
+            .then((res)=>{
+                this.setState(()=>{
+                    return {
+                        list: [...res.data]
+                    }
+                })
+            })
             .catch(()=>{console.log('fail')})
     }
 }

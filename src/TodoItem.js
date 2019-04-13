@@ -25,12 +25,12 @@ class TodoItem extends Component{
 
     render(){
         console.log('render');
-        const {index, value, a} = this.props;
+         const {value} = this.props;
         return(
-            <li
-                onClick={this._handleClick}
-                 dangerouslySetInnerHTML={{__html: value}}>
-             </li>
+             <li
+                 onClick={this._handleClick}
+                  dangerouslySetInnerHTML={{__html: value}}>
+              </li>
          )
     }
 }
