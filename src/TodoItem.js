@@ -11,23 +11,21 @@ class TodoItem extends Component{
         this._handleClick = this._handleClick.bind(this)
     }
 
+    shouldComponentUpdate(nextProps, nextState){
+        if(nextProps.value === this.props.value){
+            return false
+        }
+        return true
+    }
+
     _handleClick(){
         let {_handleItemDelete, index} = this.props;
         _handleItemDelete(index)
     }
 
-    componentWillReceiveProps(){
-        console.log('componentWillReceiveProps')
-    }
-
-    componentWillUnmount(){
-        console.log('child,unmount')
-    }
-
     render(){
-        // console.log('son')
+        console.log('render');
         const {index, value, a} = this.props;
-        // return React.createElement('li', {}, React.createElement('li', {}, 'h=oh'));
         return(
             <li
                 onClick={this._handleClick}

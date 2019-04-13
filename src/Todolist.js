@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import './style.css'
 import TodoItem from './TodoItem'
+import axios from 'axios'
 
 class Todolist extends Component{
     constructor(props){
@@ -14,29 +15,7 @@ class Todolist extends Component{
         this._handleItemDelete = this._handleItemDelete.bind(this);
     }
 
-    componentWillMount(){
-        console.log('willmount')
-    }
-
-    componentDidMount(){
-        console.log('didmount')
-    }
-
-    shouldComponentUpdate(){
-        console.log('shouldComponentUpdate')
-        return true
-    }
-
-    componentWillUpdate(){
-        console.log('componentWillUpdate');
-    }
-
-    componentDidUpdate(){
-        console.log('componentDidUpdate');
-    }
-
     getTodoItem(){
-        // console.log('father')
         return (
             this.state.list.map((e, index)=>{
                 return (
@@ -52,8 +31,7 @@ class Todolist extends Component{
     }
 
     _handleInput(e){
-        // console.log(e.target)
-        let value = this.input.value;
+        let value = e.target.value;
         this.setState(() => ({
             value : value
         }));
@@ -79,7 +57,6 @@ class Todolist extends Component{
     }
 
     render(){
-        console.log('render')
         return(
             <Fragment>
                 {/*下面是一个组件*/}
@@ -88,7 +65,7 @@ class Todolist extends Component{
                 <input
                     id="input"
                     className="input"
-                    ref={(input)=>{this.input = input}}
+                    // ref={(input)=>{this.input = input}}
                     onInput={this._handleInput}
                     value={this.state.value}/>
                 <button onClick={this._handleClick}>click</button>
@@ -99,6 +76,12 @@ class Todolist extends Component{
                 </ul>
             </Fragment>
         )
+    }
+
+    componentDidMount(){
+        axios.get('/api/TodoItem')
+            .then(()=>{console.log('success')})
+            .catch(()=>{console.log('fail')})
     }
 }
 
