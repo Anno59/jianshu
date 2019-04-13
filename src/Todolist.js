@@ -2,6 +2,10 @@ import React, {Component, Fragment} from 'react'
 import './style.css'
 import TodoItem from './TodoItem'
 import axios from 'axios'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
+import 'antd/dist/antd.css'
+import {Input, Button, List} from 'antd'
+
 
 class Todolist extends Component{
     constructor(props){
@@ -17,16 +21,48 @@ class Todolist extends Component{
 
     getTodoItem(){
         return (
-            this.state.list.map((e, index)=>{
-                return (
-                    <TodoItem
-                         key={index}
-                         index={index}
-                         value={e}
-                         _handleItemDelete={this._handleItemDelete}
-                    />
-                )
-            })
+            <TransitionGroup>
+            {
+                <List
+                    dataSource={this.state.list}
+                    bordered
+                    renderItem={
+                        item => (<List.Item>
+                            <CSSTransition
+                                // key={index}
+                                timeout={800}
+                                classNames="fade"
+                                // onEntered={(el)=>{el.style.color='red'}}
+                            >
+                                <TodoItem
+                                    // index={index}
+                                    value={item}
+                                    _handleItemDelete={this._handleItemDelete}
+                                />
+                            </CSSTransition>
+
+                        </List.Item>)
+                    }
+                />
+
+                // this.state.list.map((e, index)=>{
+                //     return (
+                //         <CSSTransition
+                //             key={index}
+                //             timeout={800}
+                //             classNames="fade"
+                //             // onEntered={(el)=>{el.style.color='red'}}
+                //         >
+                //             <TodoItem
+                //                 index={index}
+                //                 value={e}
+                //                 _handleItemDelete={this._handleItemDelete}
+                //             />
+                //         </CSSTransition>
+                //     )
+                // })
+            }
+            </TransitionGroup>
         )
     }
 
@@ -62,32 +98,31 @@ class Todolist extends Component{
                 {/*下面是一个组件*/}
                 <h2>Todolist</h2>
                 <label htmlFor="input">输入内容:</label>
-                <input
+                <Input
                     id="input"
                     className="input"
+                    style={{width:'300px',marginRight:'10px'}}
                     // ref={(input)=>{this.input = input}}
                     onChange={this._handleInput}
                     value={this.state.value}/>
-                <button onClick={this._handleClick}>click</button>
-                <ul>
-                    {
-                        this.getTodoItem()
-                    }
-                </ul>
+                <Button type="danger" onClick={this._handleClick}>click</Button>
+                {
+                    this.getTodoItem()
+                }
             </Fragment>
         )
     }
 
     componentDidMount(){
-        axios.get('/api/todolist')
-            .then((res)=>{
-                this.setState(()=>{
-                    return {
-                        list: [...res.data]
-                    }
-                })
-            })
-            .catch(()=>{console.log('fail')})
+        // axios.get('/api/todolist')
+        //     .then((res)=>{
+        //         this.setState(()=>{
+        //             return {
+        //                 list: [...res.data]
+        //             }
+        //         })
+        //     })
+        //     .catch(()=>{console.log('fail')})
     }
 }
 
