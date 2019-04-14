@@ -1,13 +1,13 @@
-import React, {Component, Fragment}  from 'react'
+import React, { Component }  from 'react'
 import PropTypes from 'prop-types'
 import TodoItemUI from './TodoItemUI'
 
 class TodoItem extends Component {
   static defaultProps = {};
 
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     if(nextProps.value === this.props.value) {
