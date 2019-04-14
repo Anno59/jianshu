@@ -3,7 +3,7 @@ import './style.css'
 import axios from 'axios'
 import 'antd/dist/antd.css'
 import store from './store'
-import { getInputChangeAction, getBtnClickAction, getItemDeleteAction } from './store/createAction'
+import { getInputChangeAction, getBtnClickAction, getItemDeleteAction, getInitListAction } from './store/createAction'
 import TodolistUI from './TodolistUI'
 
 class Todolist extends Component {
@@ -49,17 +49,14 @@ class Todolist extends Component {
     )
   }
 
-  // componentDidMount() {
-    // axios.get('/api/todolist')
-    //     .then((res)=>{
-    //         this.setState(()=>{
-    //             return {
-    //                 list: [...res.data]
-    //             }
-    //         })
-    //     })
-    //     .catch(()=>{console.log('fail')})
-  // }
+  componentDidMount() {
+    axios.get('/api/todolist')
+        .then((res)=>{
+          const action = getInitListAction(res.data.list);
+          store.dispatch(action)
+        })
+        .catch(()=>{console.log('fail')})
+  }
 }
 
 export default Todolist;
