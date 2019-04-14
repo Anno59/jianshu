@@ -1,14 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { Input, Button, List } from 'antd'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import TodoItem from './TodoItem'
 
-class TodolistUI extends Component{
-  constructor(){
-    super();
-  }
-
-  getTodoItem() {
+const TodolistUI = (props) => {
+  const getTodoItem = () => {
     return (
       <TransitionGroup>
         <CSSTransition
@@ -19,7 +15,7 @@ class TodolistUI extends Component{
           }}
         >
           <List
-            dataSource={this.props.list}
+            dataSource={props.list}
             bordered
             renderItem={
               (item, index) => (
@@ -27,7 +23,7 @@ class TodolistUI extends Component{
                   <TodoItem
                     index={index}
                     value={item}
-                    handleItemDelete={this.props.handleItemDelete}
+                    handleItemDelete={props.handleItemDelete}
                   />
                 </List.Item>
               )
@@ -38,25 +34,22 @@ class TodolistUI extends Component{
     )
   }
 
-  render(){
-      return (
-        <Fragment>
-          <h2>Todolist</h2>
-          <label htmlFor="input">输入内容:</label>
-          <Input
-            id="input"
-            className="input"
-            style={{width: '300px', marginRight: '10px'}}
-            onChange={this.props.handleChange}
-            value={this.props.value}/>
-          <Button type="danger" onClick={this.props.handleClick}>click</Button>
-          {
-            this.getTodoItem()
-          }
-        </Fragment>
-
-      )
-    }
+    return (
+      <Fragment>
+        <h2>Todolist</h2>
+        <label htmlFor="input">输入内容:</label>
+        <Input
+          id="input"
+          className="input"
+          style={{width: '300px', marginRight: '10px'}}
+          onChange={props.handleChange}
+          value={props.value}/>
+        <Button type="danger" onClick={props.handleClick}>click</Button>
+        {
+          getTodoItem()
+        }
+      </Fragment>
+    )
 }
 
 export default TodolistUI;

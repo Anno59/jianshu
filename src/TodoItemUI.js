@@ -1,18 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class TodoItemUI extends Component{
-  constructor(){
-    super();
-  }
-
-  render(){
-    return (
-      <span
-        onClick={()=>this.props.handleClick()}
-        dangerouslySetInnerHTML={{__html: this.props.value}}>
-      </span>
-    )
-  }
+const TodoItemUI = (props) => {
+  return (
+    <span
+      onClick={()=>props.handleClick()}
+      dangerouslySetInnerHTML={{__html: props.value}}>
+    </span>
+  )
 }
 
 export default TodoItemUI;
