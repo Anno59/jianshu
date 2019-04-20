@@ -3,34 +3,9 @@ import store from './store'
 import { connect } from 'react-redux';
 
 class TodoList extends Component{
-  constructor(props){
+  constructor(props) {
     super(props);
-    // this.state = store.getState();
-    // this._handleInputChange = this._handleInputChange.bind(this);
-    // this._handleBtnClick = this._handleBtnClick.bind(this);
-    // this._updateState = this._updateState.bind(this);
-    // store.subscribe(this._updateState)
   }
-
-  // _updateState(){
-  //   this.setState(store.getState())
-  // }
-  //
-  // _handleInputChange(e){
-  //   let inputValue = e.target.value;
-  //   store.dispatch({
-  //     type:'change_input_value',
-  //     inputValue
-  //   })
-  // }
-  //
-  // _handleBtnClick(){
-  //   let {inputValue} = store.getState();
-  //   store.dispatch({
-  //     type:'click_button',
-  //     inputValue
-  //   })
-  // }
 
   render(){
     return (
@@ -64,10 +39,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleInputChange:(e)=>{
       let inputValue = e.target.value;
-      // store.dispatch({
-      //   type:'change_input_value',
-      //   inputValue
-      // })
       dispatch({
         type:'change_input_value',
         inputValue
@@ -75,10 +46,6 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleBtnClick:()=>{
       let {inputValue} = store.getState();
-      // store.dispatch({
-      //   type:'click_button',
-      //   inputValue
-      // })
       dispatch({
         type:'click_button',
         inputValue
