@@ -12,7 +12,37 @@ import {
   Addtion,
   Button,
   SearchWrapper,
+  SearchInfo,
+  SearchInfoTitle,
+  SearchInfoSwitch,
+  SearchInfoItem,
+  SearchInfoList,
 } from './style'
+
+const getSearchInfo = (show) => {
+  if(show){
+    return (
+      <SearchInfo>
+        <SearchInfoTitle>
+          热门搜索
+          <SearchInfoSwitch>
+            换一批
+          </SearchInfoSwitch>
+        </SearchInfoTitle>
+        <SearchInfoList>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+          <SearchInfoItem>教育</SearchInfoItem>
+        </SearchInfoList>
+      </SearchInfo>
+    );
+  }else{
+    return null;
+  }
+};
 
 const Header = (props) => {
   return (
@@ -38,6 +68,9 @@ const Header = (props) => {
             />
           </CSSTransition>
           <i className={props.focused ? 'focused iconfont' : 'iconfont'}>&#xe623;</i>
+          {
+            getSearchInfo(props.focused)
+          }
         </SearchWrapper>
       </Nav>
       <Addtion>
@@ -52,7 +85,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.header.get('focused'),
+    focused: state.getIn(['header','focused']),
   }
 };
 

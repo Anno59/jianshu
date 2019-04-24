@@ -47,7 +47,7 @@ export const NavItem = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-  overflow: hidden;
+  // overflow: hidden;
   float: left;
   position: relative;
   .iconfont {
@@ -64,6 +64,7 @@ export const SearchWrapper = styled.div`
     }
   }
 `;
+
 
 export const NavSearch = styled.input.attrs({
   placeholder: `搜索`
@@ -97,6 +98,46 @@ export const NavSearch = styled.input.attrs({
   &.focused{
     width: 240px;
   }
+`;
+
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 57px;
+  width: 240px;
+  color: #969696;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+`;
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696；
+`;
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  line-height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  color: #333;
+  border-radius: 2px;
+`;
+
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`;
+
+export const SearchInfoSwitch = styled.span`
+  float: right;
+  font-size: 13px;
 `;
 
 export const Addtion = styled.div`
