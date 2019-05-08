@@ -23,7 +23,8 @@ import {
 
 class Header extends Component{
   getSearchInfo(){
-    if(this.props.focused) {
+    const { focused, list} = this.props;
+    if(focused) {
       return (
         <SearchInfo>
           <SearchInfoTitle>
@@ -34,7 +35,7 @@ class Header extends Component{
           </SearchInfoTitle>
           <SearchInfoList>
             {
-              this.props.list.map((item) => {
+              list.map((item) => {
                 return <SearchInfoItem key={item}>{item}</SearchInfoItem>
               })
             }
