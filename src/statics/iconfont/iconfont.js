@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalIconStyle = createGlobalStyle`@font-face {font-family: "iconfont";
-  src: url('./iconfont.eot?t=1555749491572'); /* IE9 */
-  src: url('./iconfont.eot?t=1555749491572#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPsAAsAAAAACBQAAAOgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDHAqDWIMnATYCJAMQCwoABCAFhG0HPRsOBxHVm0fJfhbYMW0KRSMpTL64yAo+knGwjG7fFxlUl1VjNp2eGN7kaLxgvCIc9aKH+I8d7eMzA03SMikbQSMFIcRLVy7f5mY/tlERiiU5D/6Xb/vphvRCfgXAH/dTl+cDy2ff5vhrSdHUiUm7AY6idWDRQbYB05j3EK/xIjYDAUgugpA9p6gKAmf2IgByDR3cFyIjxxuiCYHQVUwskBcK0SylDQBWB98nP0REAJTSwhxYdmQPQNrX881uNkeb08OjAJtOC4BPAxggCMCBnJX6fljkCsJItTkXAxAEClPVxbzZrWkYP4pEWH95AEExID3MSCMAEIXdDN54OggQeBODAIU3u6V4SDrvLgAqYDWAO5jp9BSKU5ZZCOvJwHyyGkYfu+vZ1VXT0VHV2Vm9/G6mVV3qqCzr7l39Qzo6TGWNUZUcrtZ12+Qid9jV9r2kLgdk5HW5rInM1evnBg9Pqj69H3MOqMtvETLaaLeX8ea5o+TGzurNtvt89wVuPuZYs6FD3yCXxdy9G5i8YctkdbGk8x1FDYfV6jmXMm/dTb2m12fa2FhZg5Ntba79OeQ8WLCdt1rWsfXM09KdNFlgPSuel/bT64dumtPuaWzXEToP++06Oo1OpRjFP+wIrg/KbfXLah1oounMrmEppdU0o9/QlLv8T8r4CXfiQomSHjLav2aocU+1MC3hVS/9hHp76z8O3p+8XTBuDfz7eXgxqQ2mnk9MJWtp+fz34PpFt8YVFNgeGH6a5eUFT8+1GBC3IWvoc7+5h87fWOq6aPSDxZtZQQGdMuXIqMXY0qf78MFouNyw5NKhhi0YAwC0W9srLDkwaNvrD2NhH/rzv3bC4rd+Wm/TpL9Qnyvn3rM/44lRu7XDMOznYJ2xv4h1TOMaYSp4KaSD6h4ujXLrMYAkAf/OB1h4MoXMunMkQAjWCVAGnIERvKicGQQKVRToCKkgBcqdrrI0DkPKEECAhQCEmWNAmbgGjJlGKmc+BoWNd6BjFgZSTSwXVPnQCZdMRiX4Av2HYGi2tkouYfQV3TsrThMB+4m8BCu0VZP3jjgjTzFk+bhOxIJlmmCA7TBngsIU0UjlRUpf17bqTZWhaXWxMSrBF9B/EAzN1ssul8Lnr+jeWXFDSlXwibyExkGr0nSgjpK5U8qtXLN8XEfEAss0gQG0mC0XgVLdLqKRih/gKL0aZ7JdJdXysukNl8DIPKnSpE2l09+o2PhNutqPVKTDagU=') format('woff2'),
-  url('./iconfont.woff?t=1555749491572') format('woff'),
-  url('./iconfont.ttf?t=1555749491572') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('./iconfont.svg?t=1555749491572#iconfont') format('svg'); /* iOS 4.1- */
+export const createGlobalStyle = createGlobalStyle`
+@font-face {font-family: "iconfont";
+  src: url('./iconfont.eot?t=1558014612868'); /* IE9 */
+  src: url('./iconfont.eot?t=1558014612868#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAPYAAsAAAAACCQAAAOJAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqDSIMsATYCJAMUCwwABCAFhG0HQRsxBxHVmyfJvjgwzy86rFyn5943lkpG+ki6z8EDn2e9j3QzycBaGE2X8sk3yyc1ABIgYHBxzgMbFaFG7ndnj76Q8ijLKf7/ONxzc4HNZ1kua9OaNid3WQHGnXeBrbHOA+l/oC/KfzmceRUeXfMhAIt4uUSNWg1aYKIhzQQg+vbq0QkzpUPXpAtMBK6SvhqxEANTzpKXgAX+74uPFMsEiaEgCzXpXrMrVd7EvmuqJnon0lZNYuJ4FkAcBArIBRrE4FJbX1QYyKWw9L/TVAEsTCTyTeybUm+uvmvqxZDvSGvRf3ig0EgECBck1ReAKjio4U2szYOCN6XEZZqrwIOEd02l9zKXAYAF2MA04AaEHOs6EolCBwWF+1pamWaYPaLF4dvcutVCtHCLu3c9k+44TjJu4u2mniN3lAoMscK33hV37jhFlW7fds+5Wz4Md/POqrBGCO+5dWuMs2F2Zgu3Z+Okke4RzsguToDl+Law+titWi+Pt1ZEtux00J4DlrCOWbOviEkezyR/owruXeuYuN6ec1KIP4datXpcMKSqnLFr1wxZZQL5qsph/fevPtym+to/k1O53lbtWZ6WePBaklNU9l+8uL8cIF2lFAQw3gBZ6CTFH0o8d+7Q/nMN6dpNNBQNkNBhiG7dFA1hbCod26D+jKozOrQ/erRDh5FVS3XOOHrERyU+I7t6p2IjDx/mWPfa1zNrXO/m75XHO70rNXbLap17Vbqr/1QaMvR0mQJhVM0fkOX08mtn169S7lV7z9CLUWF/otO+p8VTBmGqTvK5t+lEjZoEXnVM/eTlMIf77O0QUOG3aWsA7qs5S/2M9uI/pUGX/NJSGi9akhG9oTWpjfdK+gQxKDSBQ8Lfy/iRrmBPxnGEIbYITEkCIClCHChMUhEakwsGNiXAhUllsMhRe7BNiMEohPYBsk1DIAi0FST+HAVFoMsIjXkMBuE+g4vAFFg4ImRMm/R0vzkSCkYN8g9etY1hRt4E6Te07yQoKfOZL6TBu6HMimz4ig3SGB2Gj62YDRhqa7igxTClFjpqAyrOHHO3y3NTdqNMtfVoQ3VCwahB/sGrtjFuYd7kfv6G9p0E1WTV+V9Igy8fyqxogbiqm1ZZ13LI8LEVswFDbQ0XZMFEAy105bUCKs5cD1+3y3E+01adza+tn3ERYEG2NoQUSmhhCBd6SOebufBVuZ122Ez2YjQCAAAA') format('woff2'),
+  url('./iconfont.woff?t=1558014612868') format('woff'),
+  url('./iconfont.ttf?t=1558014612868') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('./iconfont.svg?t=1558014612868#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -15,4 +16,5 @@ export const GlobalIconStyle = createGlobalStyle`@font-face {font-family: "iconf
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}`;
+}
+`;

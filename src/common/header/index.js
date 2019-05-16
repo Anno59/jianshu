@@ -30,6 +30,7 @@ class Header extends Component{
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch>
+              <i className="iconfont">&#xe851;</i>
               换一批
             </SearchInfoSwitch>
           </SearchInfoTitle>
@@ -71,7 +72,7 @@ class Header extends Component{
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
-            <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe623;</i>
+            <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe6cf;</i>
             {
               this.getSearchInfo()
             }
@@ -79,7 +80,7 @@ class Header extends Component{
         </Nav>
         <Addtion>
           <Button className="writing">
-            <i className="iconfont">&#xe6a4;</i>
+            <i className="iconfont">&#xe61c;</i>
             写文章</Button>
           <Button className="reg">注册</Button>
         </Addtion>
