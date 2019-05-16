@@ -32,3 +32,9 @@ export const getList = () => {
       .catch();
   }
 };
+
+export const rotateSpin = () => {
+  return (dispatch) => {
+
+  }
+};

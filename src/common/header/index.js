@@ -23,14 +23,14 @@ import {
 
 class Header extends Component{
   getSearchInfo(){
-    const { focused, list} = this.props;
+    const { focused, list, handleInputClick} = this.props;
     if(focused) {
       return (
         <SearchInfo>
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch>
-              <i className="iconfont">&#xe851;</i>
+            <SearchInfoSwitch onClick={() => handleInputClick(this.spin)}>
+              <i ref={(input) => this.spin = input} className="iconfont spin">&#xe851;</i>
               换一批
             </SearchInfoSwitch>
           </SearchInfoTitle>
@@ -72,7 +72,7 @@ class Header extends Component{
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
-            <i className={focused ? 'focused iconfont' : 'iconfont'}>&#xe6cf;</i>
+            <i className={focused ? 'focused iconfont zoom' : 'iconfont zoom'}>&#xe6cf;</i>
             {
               this.getSearchInfo()
             }
@@ -105,6 +105,10 @@ const mapDispatchToProps = (dispatch) => {
     handleInputBlur: () =>{
       dispatch(actionCreators.inputBlur());
     },
+    handleInputClick: (spin) =>{
+      console.log(spin)
+      // dispatch(action)
+    }
   }
 };
 

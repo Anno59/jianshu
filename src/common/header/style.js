@@ -50,7 +50,7 @@ export const SearchWrapper = styled.div`
   // overflow: hidden;
   float: left;
   position: relative;
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -115,7 +115,11 @@ export const SearchInfoTitle = styled.div`
   margin-bottom: 15px;
   line-height: 20px;
   font-size: 14px;
-  color: #969696；
+  color: #969696;
+  .spin{
+   transition:all .2s ease;
+   transform-origin: center center;
+  }
 `;
 
 export const SearchInfoItem = styled.a`
