@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoList from './TodoList';
-import { Provider }  from 'react-redux';
-import store from './store'
+import AppItem from './App.js';
+import { GlobalStyle } from './style'
 
 const App = (
-  <Provider store={store}>
-    <TodoList />
-  </Provider>
+  <div>
+    <GlobalStyle/>
+    <AppItem/>
+  </div>
 );
 
 ReactDOM.render(App, document.getElementById('root'));
