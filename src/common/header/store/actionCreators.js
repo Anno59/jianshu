@@ -21,6 +21,18 @@ export const inputBlur = () => {
   }
 };
 
+export const MouseEnter = () => {
+  return {
+    type: constants.MOUSE_ENTER,
+  }
+};
+
+export const MouseLeave = () => {
+  return {
+    type : constants.MOUSE_LEAVE,
+  }
+};
+
 export const getList = () => {
   return (dispatch) => {
     axios

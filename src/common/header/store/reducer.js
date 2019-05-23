@@ -3,7 +3,8 @@ import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
   focused: false,
-  list: []
+  list: [],
+  mouseEnter: false,
 });
 
 export default (state = defaultState, action) =>{
@@ -13,7 +14,11 @@ export default (state = defaultState, action) =>{
     case constants.SEARCH_BLUR:
       return state.set('focused', false);
     case constants.CHANGE_LIST:
-      return state.set('list', action.value)
+      return state.set('list', action.value);
+    case constants.MOUSE_ENTER:
+      return state.set('mouseEnter', true);
+    case constants.MOUSE_LEAVE:
+      return state.set('mouseEnter', false);
   }
   return state;
 };
