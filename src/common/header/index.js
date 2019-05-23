@@ -23,10 +23,10 @@ import {
 
 class Header extends Component{
   getSearchInfo(){
-    const { focused, list, handleInputClick} = this.props;
-    if(focused) {
+    const { focused, list, handleInputClick, handleMouseEnter, handleMouseLeave, mouseEnter} = this.props;
+    if(focused || mouseEnter) {
       return (
-        <SearchInfo>
+        <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
           <SearchInfoTitle>
             热门搜索
             <SearchInfoSwitch onClick={() => handleInputClick(this.spin)}>
@@ -93,6 +93,7 @@ const mapStateToProps = (state) => {
   return {
     focused: state.getIn(['header','focused']),
     list: state.getIn(['header', 'list']),
+    mouseEnter: state.getIn(['header', 'mouseEnter']),
   }
 };
 
@@ -108,6 +109,12 @@ const mapDispatchToProps = (dispatch) => {
     handleInputClick: (spin) =>{
       console.log(spin)
       // dispatch(action)
+    },
+    handleMouseEnter: () => {
+      dispatch(actionCreators.MouseEnter());
+    },
+    handleMouseLeave: () => {
+      dispatch(actionCreators.MouseLeave());
     }
   }
 };
