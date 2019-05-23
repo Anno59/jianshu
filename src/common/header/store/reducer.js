@@ -5,6 +5,7 @@ const defaultState = fromJS({
   focused: false,
   list: []
 });
+
 export default (state = defaultState, action) =>{
   switch (action.type){
     case constants.SEARCH_FOCUS:
