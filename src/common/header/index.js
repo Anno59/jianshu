@@ -19,11 +19,19 @@ import {
   SearchInfoList,
 } from './style'
 
-
-
 class Header extends Component{
   getSearchInfo(){
     const { focused, list, handleInputClick, handleMouseEnter, handleMouseLeave, mouseEnter} = this.props;
+    let newList = list.toJS();
+    const page = Math.ceil(newList.length / 10);
+    let current = 1;
+    let pageContent = [];
+    // for(let current = 1; current < page; current++){
+      for(let i = (current - 1) * 10 ; i < (current * 10); i++){
+        pageContent.push(newList[i]);
+      }
+    // }
+
     if(focused || mouseEnter) {
       return (
         <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
@@ -36,7 +44,7 @@ class Header extends Component{
           </SearchInfoTitle>
           <SearchInfoList>
             {
-              list.map((item) => {
+              pageContent.map((item) => {
                 return <SearchInfoItem key={item}>{item}</SearchInfoItem>
               })
             }
