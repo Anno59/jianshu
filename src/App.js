@@ -3,6 +3,7 @@ import Header from './common/header';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import store from './store'
+import Home from './pages/home'
 
 class App extends Component{
   render(){
@@ -11,7 +12,7 @@ class App extends Component{
         <Provider store={store}>
           <Header/>
           <BrowserRouter>
-            <Route path="/" exact render={() => <div>home</div>}/>
+            <Route path="/" exact component={Home}/>
             <Route path="/detail" exact render={() => <div>detail</div>}/>
           </BrowserRouter>
         </Provider>
