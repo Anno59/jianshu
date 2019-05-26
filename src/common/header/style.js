@@ -116,10 +116,6 @@ export const SearchInfoTitle = styled.div`
   line-height: 20px;
   font-size: 14px;
   color: #969696;
-  .spin{
-   transition:all .2s ease;
-   transform-origin: center center;
-  }
 `;
 
 export const SearchInfoItem = styled.a`
@@ -144,6 +140,12 @@ export const SearchInfoSwitch = styled.span`
   font-size: 13px;
   cursor: pointer;
   user-select: none;
+  .spin{
+    display: block;
+    float: left;
+    transition: all .3s ease;
+    transform-origin: center center;
+  }
 `;
 
 export const Addtion = styled.div`

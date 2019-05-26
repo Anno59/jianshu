@@ -130,8 +130,10 @@ const mapDispatchToProps = (dispatch) => {
       currentPage = currentPage == page ? 1 : currentPage + 1;
 
       dispatch(actionCreators.handleInputClick(currentPage));
-      console.log(spin)
-      // dispatch(action)
+
+      let rotateAngle = spin.style.transform == '' ? 0 : spin.style.transform.replace(/\D/g, '');
+      rotateAngle = parseInt(rotateAngle, 10) + 360;
+      spin.style.transform = `rotate(${rotateAngle}deg)`;
     },
     handleMouseEnter: () => {
       dispatch(actionCreators.MouseEnter());

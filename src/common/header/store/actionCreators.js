@@ -51,3 +51,7 @@ export const handleInputClick = (currentPage) => {
     value : currentPage,
   }
 };
+
+export const SpinRotate = () => {
+
+};
