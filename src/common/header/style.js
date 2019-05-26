@@ -142,6 +142,8 @@ export const SearchInfoList = styled.div`
 export const SearchInfoSwitch = styled.span`
   float: right;
   font-size: 13px;
+  cursor: pointer;
+  user-select: none;
 `;
 
 export const Addtion = styled.div`

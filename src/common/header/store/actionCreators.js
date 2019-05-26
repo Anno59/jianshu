@@ -45,8 +45,9 @@ export const getList = () => {
   }
 };
 
-export const rotateSpin = () => {
-  return (dispatch) => {
-
+export const handleInputClick = (currentPage) => {
+  return {
+    type : constants.CLICK_MORE,
+    value : currentPage,
   }
 };

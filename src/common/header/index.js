@@ -21,23 +21,33 @@ import {
 
 class Header extends Component{
   getSearchInfo(){
-    const { focused, list, handleInputClick, handleMouseEnter, handleMouseLeave, mouseEnter} = this.props;
+    let {
+      focused,
+      list,
+      handleInputClick,
+      handleMouseEnter,
+      handleMouseLeave,
+      mouseEnter,
+      currentPage,
+    } = this.props;
+
     let newList = list.toJS();
     const page = Math.ceil(newList.length / 10);
-    let current = 1;
     let pageContent = [];
-    // for(let current = 1; current < page; current++){
-      for(let i = (current - 1) * 10 ; i < (current * 10); i++){
-        pageContent.push(newList[i]);
+
+    for(let i = (currentPage - 1) * 10 ; i < (currentPage * 10); i++){
+      if(newList[i] == undefined){
+        break;
       }
-    // }
+      pageContent.push(newList[i]);
+    }
 
     if(focused || mouseEnter) {
       return (
-        <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+        <SearchInfo onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <SearchInfoTitle>
             热门搜索
-            <SearchInfoSwitch onClick={() => handleInputClick(this.spin)}>
+            <SearchInfoSwitch onClick={() => handleInputClick(currentPage, page, this.spin)}>
               <i ref={(input) => this.spin = input} className="iconfont spin">&#xe851;</i>
               换一批
             </SearchInfoSwitch>
@@ -103,6 +113,7 @@ const mapStateToProps = (state) => {
     focused: state.getIn(['header','focused']),
     list: state.getIn(['header', 'list']),
     mouseEnter: state.getIn(['header', 'mouseEnter']),
+    currentPage: state.getIn(['header', 'currentPage']),
   }
 };
 
@@ -115,7 +126,10 @@ const mapDispatchToProps = (dispatch) => {
     handleInputBlur: () =>{
       dispatch(actionCreators.inputBlur());
     },
-    handleInputClick: (spin) =>{
+    handleInputClick: (currentPage, page, spin) =>{
+      currentPage = currentPage == page ? 1 : currentPage + 1;
+
+      dispatch(actionCreators.handleInputClick(currentPage));
       console.log(spin)
       // dispatch(action)
     },
@@ -124,6 +138,8 @@ const mapDispatchToProps = (dispatch) => {
     },
     handleMouseLeave: () => {
       dispatch(actionCreators.MouseLeave());
+    },
+    handleClickMore: (currentPage) => {
     }
   }
 };
