@@ -36,7 +36,7 @@ class Header extends Component{
     let pageContent = [];
 
     for(let i = (currentPage - 1) * 10 ; i < (currentPage * 10); i++){
-      if(newList[i] == undefined){
+      if(newList[i] === undefined){
         break;
       }
       pageContent.push(newList[i]);
@@ -127,11 +127,11 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actionCreators.inputBlur());
     },
     handleInputClick: (currentPage, page, spin) =>{
-      currentPage = currentPage == page ? 1 : currentPage + 1;
+      currentPage = currentPage === page ? 1 : currentPage + 1;
 
       dispatch(actionCreators.handleInputClick(currentPage));
 
-      let rotateAngle = spin.style.transform == '' ? 0 : spin.style.transform.replace(/\D/g, '');
+      let rotateAngle = spin.style.transform === '' ? 0 : spin.style.transform.replace(/\D/g, '');
       rotateAngle = parseInt(rotateAngle, 10) + 360;
       spin.style.transform = `rotate(${rotateAngle}deg)`;
     },

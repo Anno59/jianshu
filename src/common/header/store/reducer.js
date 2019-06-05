@@ -23,7 +23,8 @@ export default (state = defaultState, action) =>{
     case constants.CLICK_MORE:
       return state.merge({
         'currentPage': action.value
-      })
+      });
+    default:
   }
   return state;
 };
