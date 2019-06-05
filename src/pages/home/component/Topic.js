@@ -7,17 +7,16 @@ import { connect } from 'react-redux';
 
 class Topic extends Component{
   render(){
-    const topicList = this.props.topicList.toJS();
     return (
       <TopicWrapper>
         {
-          topicList.map((list)=>(
-            <TopicItem key={list.id}>
+          this.props.topicList.map((list)=>(
+            <TopicItem key={list.get('id')}>
               <img
                 className="topic-pic"
-                src={list.imgUrl}
+                src={list.get('imgUrl')}
                 alt=""/>
-              {list.title}
+              {list.get('title')}
             </TopicItem>)
           )
         }
@@ -32,4 +31,4 @@ const mapStateToProps = (state) => {
   }
 };
 
-export default connect(mapStateToProps)(Topic);
+export default connect(mapStateToProps, null)(Topic);
