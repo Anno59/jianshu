@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import List from './component/List'
 import Recommend from './component/Recommend'
 import Writer from './component/Writer'
@@ -12,7 +12,7 @@ import {
 import { actionCreators } from './store';
 import { connect } from 'react-redux';
 
-class Home extends Component{
+class Home extends PureComponent{
   backTop(){
     window.scrollTo(0, 0);
   }

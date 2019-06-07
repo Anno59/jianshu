@@ -10,8 +10,8 @@ class App extends Component{
     return(
       <div>
         <Provider store={store}>
-          <Header/>
           <BrowserRouter>
+            <Header/>
             <Route path="/" exact component={Home}/>
             <Route path="/detail" exact render={() => <div>detail</div>}/>
           </BrowserRouter>
