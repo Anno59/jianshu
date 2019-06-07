@@ -8,7 +8,7 @@ import {
   HomeLeft,
   HomeRight,
 } from './style'
-import { getHomeInfo } from './store';
+import { actionCreators } from './store';
 import { connect } from 'react-redux';
 
 class Home extends Component{
@@ -38,7 +38,9 @@ class Home extends Component{
 
 const mapDispatchToProps = (dispatch) => ({
   changeHomeData() {
-    getHomeInfo(dispatch);
+    const action = actionCreators.getHomeInfo();
+    dispatch(action);
+    console.log(2)
   }
 });
 

@@ -1,4 +1,4 @@
 import reducer from './reducer';
-import { getHomeInfo } from './actionCreators'
+import * as actionCreators from './actionCreators'
 
-export { reducer , getHomeInfo};
+export { reducer , actionCreators };

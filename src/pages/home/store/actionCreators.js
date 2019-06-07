@@ -10,10 +10,13 @@ const changeHomeData = (data) => {
   }
 };
 
-export const getHomeInfo = (dispatch) => {
-  axios({url:'/api/home.json', method: 'get', responseType: 'json'})
-    .then((res)=>{
-      const data = res.data.data;
-      dispatch(changeHomeData(data));
-    });
+export const getHomeInfo = () => {
+  return (dispatch) => {
+    axios({url:'/api/home.json', method: 'get', responseType: 'json'})
+      .then((res)=>{
+        console.log(1)
+        const data = res.data.data;
+        dispatch(changeHomeData(data));
+      });
+  }
 };
