@@ -1,12 +1,11 @@
-## 简书app
+# 简书app
 
-### 说明
+#### 说明
 
-仿官网 [简书]:https://www.jianshu.com 搭建登入，首页，文章详情界面
+仿官网 https://www.jianshu.com 登入，首页，文章详情
 
 ### 技术栈
 
-- react
 - react-redux
 - redux-immutable
 - axios
