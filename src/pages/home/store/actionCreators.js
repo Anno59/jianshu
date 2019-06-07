@@ -10,13 +10,35 @@ const changeHomeData = (data) => {
   }
 };
 
+const addMoreData = (data) => {
+  return {
+    type: constants.ADD_MORE_DATA,
+    articleList: data.articleList,
+  }
+};
+
 export const getHomeInfo = () => {
   return (dispatch) => {
     axios({url:'/api/home.json', method: 'get', responseType: 'json'})
       .then((res)=>{
-        console.log(1)
         const data = res.data.data;
         dispatch(changeHomeData(data));
       });
   }
 };
+
+export const getMoreList = () => {
+  return (dispatch) => {
+    axios.get('/api/homeList.json')
+      .then((data) => {
+        const listData= data.data.data;
+        // console.log(listData);
+        dispatch(addMoreData(listData));
+    })
+  }
+};
+
+export const getBackTopState = (state) => ({
+    type: constants.TOGGLE_SHOW_BACKTOP,
+    value: state,
+});

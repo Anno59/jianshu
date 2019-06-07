@@ -7,11 +7,16 @@ import {
   HomeWrapper,
   HomeLeft,
   HomeRight,
+  BackTop,
 } from './style'
 import { actionCreators } from './store';
 import { connect } from 'react-redux';
 
 class Home extends Component{
+  backTop(){
+    window.scrollTo(0, 0);
+  }
+
   render(){
     return (
       <HomeWrapper>
@@ -27,12 +32,24 @@ class Home extends Component{
           <Recommend/>
           <Writer/>
         </HomeRight>
+        {
+          this.props.showBackTop ? <BackTop onClick={this.backTop}>回到顶部</BackTop> : null
+        }
       </HomeWrapper>
     )
   }
 
   componentDidMount(){
     this.props.changeHomeData();
+    this.bindEvent();
+  }
+
+  bindEvent(){
+    window.addEventListener('scroll', this.props.toggleShowBackTop)
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.props.toggleShowBackTop);
   }
 }
 
@@ -40,8 +57,19 @@ const mapDispatchToProps = (dispatch) => ({
   changeHomeData() {
     const action = actionCreators.getHomeInfo();
     dispatch(action);
-    console.log(2)
+  },
+  toggleShowBackTop() {
+    let offset = window.pageYOffset;
+    if (offset > 400) {
+      dispatch(actionCreators.getBackTopState(true));
+    }else{
+      dispatch(actionCreators.getBackTopState(false));
+    }
   }
 });
 
-export default connect(null, mapDispatchToProps)(Home);
+const mapStateToProps = (state) => ({
+  showBackTop: state.getIn(['home', 'toggleShowBackTop'])
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
