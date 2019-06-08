@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 import { actionCreators } from './store';
+import { actionCreators as loginActionCreators } from '../../pages/login/store';
 import { Link } from 'react-router-dom';
+
 import {
   HeaderWrapper,
   Logo,
@@ -67,7 +69,7 @@ class Header extends PureComponent{
   }
 
   render(){
-    const { focused, handleInputFocus, handleInputBlur, list} = this.props;
+    const { focused, handleInputFocus, handleInputBlur, list, loginOut, loginIn} = this.props;
     return (
       <HeaderWrapper>
         <Link to='./'>
@@ -76,7 +78,13 @@ class Header extends PureComponent{
         <Nav>
           <NavItem className="left">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
+          {
+            loginIn
+            ? <NavItem onClick={loginOut} className="right">登出</NavItem>
+            : <Link to="login">
+                <NavItem className="right">登录</NavItem>
+              </Link>
+          }
           <NavItem className="right">
             <i className="iconfont">&#xe636;</i>
           </NavItem>
@@ -102,7 +110,9 @@ class Header extends PureComponent{
           <Button className="writing">
             <i className="iconfont">&#xe61c;</i>
             写文章</Button>
-          <Button className="reg">注册</Button>
+          {
+            loginIn ? null : <Button className="reg">注册</Button>
+          }
         </Addtion>
       </HeaderWrapper>
     )
@@ -115,6 +125,7 @@ const mapStateToProps = (state) => {
     list: state.getIn(['header', 'list']),
     mouseEnter: state.getIn(['header', 'mouseEnter']),
     currentPage: state.getIn(['header', 'currentPage']),
+    loginIn: state.getIn(['login', 'loginIn']),
   }
 };
 
@@ -142,6 +153,9 @@ const mapDispatchToProps = (dispatch) => {
     handleMouseLeave: () => {
       dispatch(actionCreators.MouseLeave());
     },
+    loginOut: () => {
+      dispatch(loginActionCreators.loginOut())
+    }
   }
 };
 
