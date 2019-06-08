@@ -72,7 +72,7 @@ class Header extends PureComponent{
     const { focused, handleInputFocus, handleInputBlur, list, loginOut, loginIn} = this.props;
     return (
       <HeaderWrapper>
-        <Link to='./'>
+        <Link to='/'>
           <Logo/>
         </Link>
         <Nav>
@@ -81,7 +81,7 @@ class Header extends PureComponent{
           {
             loginIn
             ? <NavItem onClick={loginOut} className="right">登出</NavItem>
-            : <Link to="login">
+            : <Link to="/login">
                 <NavItem className="right">登录</NavItem>
               </Link>
           }
