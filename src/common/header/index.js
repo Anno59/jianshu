@@ -66,7 +66,6 @@ class Header extends PureComponent{
     }
   }
 
-
   render(){
     const { focused, handleInputFocus, handleInputBlur, list} = this.props;
     return (

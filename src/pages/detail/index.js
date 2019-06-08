@@ -17,7 +17,7 @@ class Detail extends Component{
     )
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.getDetailInfo();
   }
 }
