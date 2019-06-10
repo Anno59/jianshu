@@ -36,7 +36,7 @@ export const MouseLeave = () => {
 export const getList = () => {
   return (dispatch) => {
     axios
-      .get('/api/trending_search')
+      .get('/api/trending_search.json')
       .then((res) => {
         const data = res.data;
         dispatch(changeList(data))
