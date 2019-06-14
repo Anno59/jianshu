@@ -3,6 +3,7 @@
 ### 说明
 
 官网 https://www.jianshu.com 
+
 仿登入，首页，文章详情
 
 ### 技术栈
@@ -329,96 +330,4 @@ export const Logo = styled.a.attrs({
 ```
 
 **reducer的拆分**
-> reducer参杂太多的action变的很难维护，对不同功能模块下的功能进行拆分
-
-```
-{combineReducers} from 'redux'
-
-combineReducers({
-    componentName : reducer
-})
-```
-
-```
-export const SEARCH_FOCUS = 'header/SEARCH_FOCUS' //不同组件的action进行目录的区分方便维护
-```
-
-- 外部组件访问store中的文件，可在store的出口文件index中访问
-```
-//index.js 
-import reducer from './reducer';
-import * as actionCreators from './actionCreators'
-import * as constants from './constants'
-
-```
-
-**immutable**
-> 保证state不会被无意中修改
-```
-{ fromJS }
-fromJS(state)
-
-获取get(key,value)
-设置set(keu,value) //结合之前的value和当前设置的value返回一个新的state
-
-拆分的state各组件状态要生成immutable对象
-state.header.get('test');//获取state中header状态
-```
-**redux-immutable**
-```
-总体的state生成immutable对象
-{ combineReducers } 'redux-immutable'
-combineReducers({header:state})
-state.get('header').get('test')
-state.getIn(['header','test'])
-
-state.header.test1
-state.set('list', test2)
-set多个时可以进行链式调用，或者使用merge({key: value,...})
-//immutable对象的所有引用都会变成同类型，改变需要进行fromJS转换
-immutable数组也提供map方法
-```
-
-# 8
-
-**react-router**
-- react-router-dom 
-> 将router和dom进行结合，能从dom中的相应的事件进行路由的跳转
-
-```
-<BrowserRouter>
-    <Route path exact render> //exact 对路由进行精准匹配
-<BrowserRouter>
-
-<Route path="/detail/:id" exact component={Detail}/> //动态路由
-对应跳转页面参数则根据 `props.match.param` 获取
-
-<Redirect> //重定向
-```
-
-
-**PureComponent**
-> 在父组件更新时，与父组件状态无关系的子组件也会被更新，PureComponent就封装了shouldComponentUpdate的操作，判断子组件是否需要被更新；
-
-- 最好与immutable库配合使用
-
-# 9
-
-**react-loadable - 异步组件**
-> 防止首次加载js文件过大，将打包的js文件拆开，按需加载对应的各个组件的js文件
-
-```
-import Loadable from 'react-loadable';
-import React from 'react';
-
-const LoadableComponent = Loadable({
-  loader: () => import('./'), //异步加载组件
-  loading: () => (
-    <div>Loading...</div>
-  ), //
-});
-
-export default () => <LoadableComponent/>
-```
-
-- withRouter ：route路由对应的组件为异步组件了，异步子组件无法获取route信息，则需要用withRouter进行包裹组件
+> reducer参杂太多的action变的很难维护，对不同功能模块下的
