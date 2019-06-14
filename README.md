@@ -17,13 +17,13 @@
 
 ### 使用说明
 
-npm i --save
+`npm i --save`
 
 ### 部分笔记
 
-# 1
+#### #1
 熟悉ES6
-# 2
+#### #2
 **脚手架**
 
 >  快速构建大型项目的开发流程与目录，以一定的文件关系管理`script`文件的相互引用
@@ -52,7 +52,7 @@ npm i --save
 - 使用了`JSX`必须引用`react`
 - 组件必须大写开头
 
-# 3
+#### #3
 - `Fragment`占位符组件：替换传统`react`外层嵌套`div`
 - `JSX`中写变量要{}，嵌套在JS语句中的`JSX`使用JS变量也要写{}
 ```
@@ -85,7 +85,7 @@ npm i --save
 - 视图层框架：大型组件通信问题，不相邻的组件之间想通信产生的就非常冗余
 - 函数式编程：面向测试式开发，方便自动化测试
 
-# 4
+#### #4
 **PropType**
 
 > `state`状态类型验证
@@ -204,7 +204,7 @@ name-exit-active
 ```
 TransitionGroup
 
-# 5
+#### #5
 **Redux工作流程**
 ```
 - Component -> Dispatch -> Store -> Reducer
@@ -242,7 +242,7 @@ TransitionGroup
 - store唯一性
 - 只有store内部改变自己的数据
 - reducer必须是纯函数（固定输入固定输出：不能有异步或者当前时间赋值等操作；不能有副作用）
-# 6
+#### #6
 - UI（Dumb组件）和业务容器（Smart）组件分离
 - 只有render的组件可以转换为无状态组件，不继承Component的生命周期函数，性能更优；定义成无状态组件后，该组件会默认有个props形参接收父组件的传递
 
@@ -277,7 +277,7 @@ TransitionGroup
 axios.get().then(()=>{});
 
 
-# 7
+#### #7
 - import引用css时，所有的组件都能共享，会耦合使用
 
 style-component
@@ -330,4 +330,96 @@ export const Logo = styled.a.attrs({
 ```
 
 **reducer的拆分**
-> reducer参杂太多的action变的很难维护，对不同功能模块下的
+> reducer参杂太多的action变的很难维护，对不同功能模块下的功能进行拆分
+
+```
+{combineReducers} from 'redux'
+
+combineReducers({
+    componentName : reducer
+})
+```
+
+```
+export const SEARCH_FOCUS = 'header/SEARCH_FOCUS' //不同组件的action进行目录的区分方便维护
+```
+
+- 外部组件访问store中的文件，可在store的出口文件index中访问
+```
+//index.js 
+import reducer from './reducer';
+import * as actionCreators from './actionCreators'
+import * as constants from './constants'
+
+```
+
+**immutable**
+> 保证state不会被无意中修改
+```
+{ fromJS }
+fromJS(state)
+
+获取get(key,value)
+设置set(keu,value) //结合之前的value和当前设置的value返回一个新的state
+
+拆分的state各组件状态要生成immutable对象
+state.header.get('test');//获取state中header状态
+```
+**redux-immutable**
+```
+总体的state生成immutable对象
+{ combineReducers } 'redux-immutable'
+combineReducers({header:state})
+state.get('header').get('test')
+state.getIn(['header','test'])
+
+state.header.test1
+state.set('list', test2)
+set多个时可以进行链式调用，或者使用merge({key: value,...})
+//immutable对象的所有引用都会变成同类型，改变需要进行fromJS转换
+immutable数组也提供map方法
+```
+
+#### #8
+
+**react-router**
+- react-router-dom 
+> 将router和dom进行结合，能从dom中的相应的事件进行路由的跳转
+
+```
+<BrowserRouter>
+    <Route path exact render> //exact 对路由进行精准匹配
+<BrowserRouter>
+
+<Route path="/detail/:id" exact component={Detail}/> //动态路由
+对应跳转页面参数则根据 `props.match.param` 获取
+
+<Redirect> //重定向
+```
+
+
+**PureComponent**
+> 在父组件更新时，与父组件状态无关系的子组件也会被更新，PureComponent就封装了shouldComponentUpdate的操作，判断子组件是否需要被更新；
+
+- 最好与immutable库配合使用
+
+#### #9
+
+**react-loadable - 异步组件**
+> 防止首次加载js文件过大，将打包的js文件拆开，按需加载对应的各个组件的js文件
+
+```
+import Loadable from 'react-loadable';
+import React from 'react';
+
+const LoadableComponent = Loadable({
+  loader: () => import('./'), //异步加载组件
+  loading: () => (
+    <div>Loading...</div>
+  ), //
+});
+
+export default () => <LoadableComponent/>
+```
+
+- withRouter ：route路由对应的组件为异步组件了，异步子组件无法获取route信息，则需要用withRouter进行包裹组件
