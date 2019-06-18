@@ -1,10 +1,10 @@
 # 简书
 
+[demo](https://anno59.github.io/jianshu/build/)
+
 ### 说明
 
-仿官网 https://www.jianshu.com 
-
-登入，首页，文章详情
+完成登入，首页，文章详情
 
 ### 技术栈
 
