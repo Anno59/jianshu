@@ -29,7 +29,7 @@ export const getHomeInfo = () => {
 
 export const getMoreList = () => {
   return (dispatch) => {
-    axios.get('/api/homeList.json')
+    axios.get(process.env.PUBLIC_URL + '/api/homeList.json')
       .then((data) => {
         const listData= data.data.data;
         // console.log(listData);
