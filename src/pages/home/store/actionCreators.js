@@ -19,7 +19,7 @@ const addMoreData = (data) => {
 
 export const getHomeInfo = () => {
   return (dispatch) => {
-    axios({url:'/api/home.json', method: 'get', responseType: 'json'})
+    axios({url: process.env.PUBLIC_URL + '/api/home.json', method: 'get', responseType: 'json'})
       .then((res)=>{
         const data = res.data.data;
         dispatch(changeHomeData(data));

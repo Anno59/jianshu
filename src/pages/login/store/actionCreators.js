@@ -13,7 +13,7 @@ const loginIn = () => ({
 
 export const toLoginIn = (account, pwd) => (
   (dispatch) => {
-    axios.get(`/api/login.json?account=${account}&pwd=${pwd}`)
+    axios.get(`${process.env.PUBLIC_URL}/api/login.json?account=${account}&pwd=${pwd}`)
       .then((res) => {
         const data = res.data.data;
         data && dispatch(loginIn());

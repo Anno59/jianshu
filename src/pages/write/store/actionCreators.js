@@ -9,7 +9,7 @@ const changeDetailData = (data) => ({
 
 export const getDetailData = (id) => {
   return (dispatch) => {
-    axios.get('/api/detail.json?id='+id).then((res) => {
+    axios.get(process.env.PUBLIC_URL + '/api/detail.json?id='+id).then((res) => {
       const data = res.data.data;
       dispatch(changeDetailData(data))
     })
