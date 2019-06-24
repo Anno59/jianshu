@@ -1,6 +1,6 @@
 {
-  "main.js": "/jianshu/static/js/main.8129ad2c.chunk.js",
-  "main.js.map": "/jianshu/static/js/main.8129ad2c.chunk.js.map",
+  "main.js": "/jianshu/static/js/main.ee011824.chunk.js",
+  "main.js.map": "/jianshu/static/js/main.ee011824.chunk.js.map",
   "runtime~main.js": "/jianshu/static/js/runtime~main.ca3ba470.js",
   "runtime~main.js.map": "/jianshu/static/js/runtime~main.ca3ba470.js.map",
   "static/js/2.c9cfde63.chunk.js": "/jianshu/static/js/2.c9cfde63.chunk.js",
@@ -8,6 +8,6 @@
   "static/js/3.5848bb2a.chunk.js": "/jianshu/static/js/3.5848bb2a.chunk.js",
   "static/js/3.5848bb2a.chunk.js.map": "/jianshu/static/js/3.5848bb2a.chunk.js.map",
   "index.html": "/jianshu/index.html",
-  "precache-manifest.51983fec29d8bf057d1f5faa7a52c90c.js": "/jianshu/precache-manifest.51983fec29d8bf057d1f5faa7a52c90c.js",
+  "precache-manifest.a1aeb711eb197c174a19463743b2f956.js": "/jianshu/precache-manifest.a1aeb711eb197c174a19463743b2f956.js",
   "service-worker.js": "/jianshu/service-worker.js"
 }
