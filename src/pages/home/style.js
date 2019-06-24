@@ -85,7 +85,7 @@ export const RecommendWrapper = styled.div`
 `;
 
 export const RecommendItem = styled.div`
-  background: url(${(props) => props.imgUrl});
+  background: url(${(props) => (process.env.PUBLIC_URL + props.imgUrl)});
   width: 280px;
 	height: 50px;
 	background-size: contain;
