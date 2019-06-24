@@ -1,6 +1,6 @@
 # 简书
 
-[demo](https://anno59.github.io/jianshu/build/)
+[demo](https://anno59.github.io/jianshu/)
 
 ### 说明
 
