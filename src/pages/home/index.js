@@ -30,7 +30,7 @@ class Home extends PureComponent{
         </HomeLeft>
         <HomeRight>
           <Recommend/>
-          <Writer/>
+          {/*<Writer/>*/}
         </HomeRight>
         {
           this.props.showBackTop ? <BackTop onClick={this.backTop}>回到顶部</BackTop> : null

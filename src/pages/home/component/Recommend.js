@@ -11,7 +11,7 @@ class Recommend extends PureComponent{
       <RecommendWrapper>
         {
           this.props.list.map((item) =>(
-            <RecommendItem key={item.get('id')} imgUrl={item.get('img')}/>
+            <RecommendItem key={item.get('id')} imgUrl={item.get('imgUrl')}/>
             )
           )
         }

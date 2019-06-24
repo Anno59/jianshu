@@ -11,11 +11,11 @@ import Write from './pages/write';
 
 class App extends Component{
   render(){
-    console.log(process.env.PUBLIC_URL);
+    // console.log(process.env.PUBLIC_URL);
     return(
       <div>
         <Provider store={store}>
-          <BrowserRouter>
+          <BrowserRouter basename="/jianshu/">
             <Header/>
             <Route path="/write" exact component={Write}/>
             <Route path="/login" exact component={Login}/>

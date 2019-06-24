@@ -17,7 +17,7 @@ class List extends PureComponent{
           articleList.map((list, index)=>(
           <Link key={index} to={`/detail/${list.get('id')}`}>
             <ListItem>
-              <img className="pic" src={list.get('imgUrl')} alt=""/>
+              <img className="pic" src={ process.env.PUBLIC_URL + list.get('imgUrl') } alt=""/>
               <ListInfo>
                 <h3 className="title">{list.get('title')}</h3>
                 <p className="desc">

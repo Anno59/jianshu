@@ -1,0 +1,56 @@
+{
+	"success": true,
+	"data": {
+		"topicList": [{
+			"id": 1,
+			"title": "社会热点",
+			"imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}, {
+			"id": 2,
+			"title": "手手绘",
+			"imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}, {
+			"id": 3,
+			"title": "社会热点",
+			"imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}, {
+			"id": 4,
+			"title": "手手绘",
+			"imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+		}],
+		"articleList": [{
+			"id": 1,
+			"title": "富人都有的11个习惯，你有几个？",
+			"desc": "90天易效能时间管理践行打卡第82天 #践行目标# 1、早起6:00-6:30，早睡22:00-22:30； 2、每天写晨间日记，反思昨天，计划...",
+			"imgUrl": "/api/imgs/1.png"
+		}, {
+			"id": 2,
+			"title": "想发个朋友圈经典语录",
+			"desc": "想发个朋友圈经典语录：看到比你优秀或幸运的人，不酸不妒忌不揣测对方的阴暗面，而是从内心里坦然接受并跃跃欲试，反而受到了莫大的鼓舞，油然而生“变得...",
+			"imgUrl": "/api/imgs/2.jpg"
+		}, {
+			"id": 3,
+			"title": "我观察了一整年那些厉害的人，他们教会了我这十件事",
+			"desc": "来源 / 一直特立独行的猫（ID:niubicat） 辞职做自由职业者这两年，我认识了形形色色的很多人，我特别相信一句话，那就是看一个人日常说什...",
+			"imgUrl": "/api/imgs/3.jpg"
+		}, {
+			"id": 4,
+			"title": "女人有没有想你，对她说这“四个字”，就心里有数了",
+			"desc": "在感情里，再大大咧咧的男人，也会变得细心体贴，再粗狂的男人，也会变得情感细腻，不要以为，女人不在男人的身边，男人不想念女人。 男人不仅会想念女人...",
+			"imgUrl": "/api/imgs/4.jpeg"
+		}],
+		"recommendList": [{
+			"id": 1,
+			"imgUrl": "/api/imgs/member.png"
+		}, {
+			"id": 2,
+			"imgUrl": "/api/imgs/lianzai.png"
+		}, {
+			"id": 3,
+			"imgUrl": "/api/imgs/banquan.png"
+		}, {
+			"id": 4,
+			"imgUrl": "/api/imgs/xuetang.png"
+		}]
+	}
+}
