@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/jianshu/static/js/runtime~main.ca3ba470.js"
   },
   {
-    "revision": "9fea71dbc53bb1ecc032",
-    "url": "/jianshu/static/js/main.ba71166d.chunk.js"
+    "revision": "1d3db5a867961bbd21e3",
+    "url": "/jianshu/static/js/main.94bf956e.chunk.js"
   },
   {
     "revision": "b42906a2140b93814db4",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/jianshu/static/js/2.c9cfde63.chunk.js"
   },
   {
-    "revision": "5bb358be67ce43028107bb2836d3e223",
+    "revision": "0992e694038a286b20d7923264fe34c0",
     "url": "/jianshu/index.html"
   }
 ];
