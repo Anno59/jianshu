@@ -33,16 +33,16 @@
 		}],
 		"recommendList": [{
 			"id": 1,
-			"imgUrl": "api/imgs/member.png"
+			"imgUrl": "/api/imgs/member.png"
 		}, {
 			"id": 2,
-			"imgUrl": "api/imgs/lianzai.png"
+			"imgUrl": "/api/imgs/lianzai.png"
 		}, {
 			"id": 3,
-			"imgUrl": "api/imgs/banquan.png"
+			"imgUrl": "/api/imgs/banquan.png"
 		}, {
 			"id": 4,
-			"imgUrl": "api/imgs/xuetang.png"
+			"imgUrl": "/api/imgs/xuetang.png"
 		}]
 	}
 }
